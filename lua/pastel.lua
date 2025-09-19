@@ -14,6 +14,8 @@ M.setup = function(c)
 end
 
 M.colorscheme = function()
+	vim.opt.termguicolors = true
+	vim.opt.background = "light"
 	-- core palette
 	local ocean_100 = Color:from_hex("#406277")
 	local ocean_200 = Color:from_hex("#5A8BAA")
@@ -53,18 +55,18 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "@none", { fg = "", bg = "" })
 
 	-- nvim
-	-- ctermbg
-	vim.api.nvim_set_hl(0, "Normal", { bg = config.transparent and "" or surface:hex(), fg = text_100:hex() })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = config.transparent and "" or surface:hex(), fg = text_100:hex() })
+	vim.api.nvim_set_hl(0, "Normal", { bg = surface:hex(), fg = text_100:hex() })
+	vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = surface:hex(), fg = text_100:hex() })
+	vim.api.nvim_set_hl(0, "FloatBorder", { fg = stone_100:hex() })
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = surface:hex() })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = surface:hex() })
 	vim.api.nvim_set_hl(0, "Visual", { bg = chalk:hex() })
 	vim.api.nvim_set_hl(0, "HighlightYank", { bg = stone_300:hex() })
-	vim.api.nvim_set_hl(0, "StatusLine", { bg = config.transparent and "" or surface:hex() })
-	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = config.transparent and "" or surface:hex() })
-	vim.api.nvim_set_hl(0, "WinBar", { bg = config.transparent and "" or surface:lighten(1):hex() })
+	vim.api.nvim_set_hl(0, "WinBar", { bg = surface:darken():hex() })
 	vim.api.nvim_set_hl(0, "WinBarNC", { link = "WinBar" })
 	vim.api.nvim_set_hl(0, "Pmenu", { bg = config.transparent and "" or surface:hex(), fg = stone_100:hex() })
 	vim.api.nvim_set_hl(0, "PmenuThumb", {})
-	vim.api.nvim_set_hl(0, "FloatBorder", { fg = stone_100:hex() })
 	vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = stone_300:hex() })
 	vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = stone_300:hex() })
 	vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = stone_100:hex() })
@@ -162,11 +164,6 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "AIActionsHeader", { link = "@text" })
 	vim.api.nvim_set_hl(0, "AIActionsInActiveContext", { link = "@comment" })
 	vim.api.nvim_set_hl(0, "AIActionsActiveContext", { fg = peach:hex() })
-
-	-- vim.api.nvim_set_hl(0, "HackedPortalNC", { fg = gray_500:hex(), bg = gray_900:hex() })
-	-- vim.api.nvim_set_hl(0, "HackedPortal", { fg = gray_900:hex(), bg = orange:hex() })
-	-- vim.api.nvim_set_hl(0, "HackedPortalEdgeNC", { fg = gray_900:hex() })
-	-- vim.api.nvim_set_hl(0, "HackedPortalEdge", { fg = orange:hex() })
 
 	vim.api.nvim_set_hl(0, "SnacksBackdrop", { bg = config.transparent and "" or surface:fade(8):hex() })
 
