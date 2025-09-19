@@ -7,6 +7,7 @@ local config = {
 }
 
 M.setup = function(c)
+	c = c or {}
 	if c.transparent ~= nil then
 		config.transparent = c.transparent
 	end

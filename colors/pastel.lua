@@ -1,1 +1,1 @@
-require("nordish").colorscheme()
+require("pastel").colorscheme()
