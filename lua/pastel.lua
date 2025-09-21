@@ -26,6 +26,7 @@ M.colorscheme = function()
 	local ink = Color:from_hex("#4C4F59")
 	local chalk = Color:from_hex("#F2F0E9")
 
+	local strong_text = ink:darken()
 	local text_100 = ink
 	local text_200 = ink:lighten(15)
 	local text_300 = ink:lighten(25)
@@ -74,7 +75,7 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "Folded", { fg = stone_200:darken(5):hex() })
 	vim.api.nvim_set_hl(0, "QuickFixLine", { fg = ocean_400:hex() })
 	vim.api.nvim_set_hl(0, "MatchParen", { bg = stone_300:hex() })
-	vim.api.nvim_set_hl(0, "Cursor", { bg = lilac:hex() })
+	vim.api.nvim_set_hl(0, "Cursor", { bg = stone_100:hex() })
 	vim.api.nvim_set_hl(0, "CursorLine", {})
 
 	-- lsp links
@@ -82,8 +83,8 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "Identifier", { fg = sage:hex() })
 	vim.api.nvim_set_hl(0, "Special", { fg = sage:fade():hex() })
 	vim.api.nvim_set_hl(0, "Type", { fg = sage:hex() })
-	vim.api.nvim_set_hl(0, "String", { fg = sage:hex() })
-	vim.api.nvim_set_hl(0, "Function", { fg = sky:hex() })
+	vim.api.nvim_set_hl(0, "String", { fg = sage:darken():hex() })
+	vim.api.nvim_set_hl(0, "Function", { fg = sky:hex(), bold = true })
 	vim.api.nvim_set_hl(0, "Delimiter", { fg = text_300:hex() })
 	vim.api.nvim_set_hl(0, "Statement", { fg = text_200:hex() })
 	vim.api.nvim_set_hl(0, "Keyword", { fg = rose:hex() })
@@ -103,13 +104,13 @@ M.colorscheme = function()
 
 	-- lsp semantics
 	vim.api.nvim_set_hl(0, "@text", { fg = text_100:hex() })
-	vim.api.nvim_set_hl(0, "@variable", { fg = text_200:hex() })
-	vim.api.nvim_set_hl(0, "@function", { fg = sky:hex() })
+	vim.api.nvim_set_hl(0, "@variable", { fg = text_100:hex() })
+	vim.api.nvim_set_hl(0, "@function", { fg = rose:hex(), bold = true })
 	vim.api.nvim_set_hl(0, "@property", { fg = ocean_100:hex() })
 
 	-- lua
 	vim.api.nvim_set_hl(0, "@lsp.type.method.lua", {})
-	vim.api.nvim_set_hl(0, "@lsp.type.property.lua", { fg = ocean_200:hex() })
+	-- vim.api.nvim_set_hl(0, "@lsp.type.property.lua", { fg = ocean_200:hex() })
 	-- vim.api.nvim_set_hl(0, "@lsp.type.method.lua", { fg = sky:hex() })
 
 	-- tsx
@@ -173,5 +174,7 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { fg = text_100:hex(), bg = sage:hex(), bold = true })
 	vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { fg = text_100:hex(), bg = peach:hex(), bold = true })
 end
+
+-- M.colorscheme()
 
 return M
