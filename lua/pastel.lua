@@ -81,9 +81,9 @@ M.colorscheme = function()
 	vim.api.nvim_set_hl(0, "CursorLine", {})
 
 	-- lsp links
-	vim.api.nvim_set_hl(0, "Constant", { fg = lilac:hex() })
+	vim.api.nvim_set_hl(0, "Constant", { fg = lilac:darken(11):hex() })
 	vim.api.nvim_set_hl(0, "Identifier", { fg = sage:hex() })
-	vim.api.nvim_set_hl(0, "Special", { fg = sage:fade():hex() })
+	vim.api.nvim_set_hl(0, "Special", { fg = sage:fade():hex(), bold = true })
 	vim.api.nvim_set_hl(0, "Type", { fg = sage:darken(11):hex() })
 	vim.api.nvim_set_hl(0, "String", { fg = sage:darken(33):hex(), italic = true })
 	vim.api.nvim_set_hl(0, "Function", { fg = sky:hex(), bold = true })
